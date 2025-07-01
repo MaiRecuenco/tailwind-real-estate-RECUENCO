@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Tailwind Directives */
 
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
@@ -108,9 +110,7 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -564,9 +564,15 @@ body{
 .container{
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   max-width: 80rem;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+/*base style (color) */
+
+.container{
   width: 100%;
 }
 
@@ -619,16 +625,67 @@ body{
 }
 
 .header__nav{
+  position: fixed;
+  top: 6.2rem;
+  right: -100%;
   display: flex;
-  flex-direction: row;
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  flex-direction: column;
   align-items: center;
-  gap: 40rem;
+  gap: 1.25rem;
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px){
+  .header__nav{
+    position: relative;
+    top: auto;
+    right: auto;
+    height: auto;
+    max-height: none;
+    width: auto;
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .header__nav{
+    gap: 30rem;
+  }
+}
+
+.header__nav {
+  /* flex flex-col md:flex-row gap-[5] md:gap-[7rem] lg:gap-[30rem] items-center
+    fixed w-full md:relative md:w-auto max-h-full overflow-hidden right-0 top-[6.2rem] md:top-auto
+    bg-white h-full md:h-auto; */
+}
+
+.header__nav.open{
+  right: 0px;
+  z-index: 50;
+  overflow-y: hidden;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header__nav ul{
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1.25rem;
+}
+
+@media (min-width: 768px){
+  .header__nav ul{
+    flex-direction: row;
+  }
 }
 
 .header__nav ul li a{
@@ -642,6 +699,50 @@ body{
 .header__nav ul li a:hover{
   --tw-text-opacity: 1;
   color: rgb(70 104 133 / var(--tw-text-opacity, 1));
+}
+
+.toggle__menu{
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px){
+  .toggle__menu{
+    display: none;
+  }
+}
+
+.toggle__menu span{
+  display: inline-block;
+  height: 0.25rem;
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(25 47 87 / var(--tw-bg-opacity, 1));
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --tw-content: "*";
+  content: var(--tw-content);
+}
+
+.toggle__menu span:last-child{
+  width: 1.75rem;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle__menu.open span{
+  width: 1.75rem;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle__menu.open span:last-child{
+  width: 2.5rem;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .homeProperties__card{
@@ -669,6 +770,7 @@ body{
 .homeProperties__card__details ul li{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
 }
 
 .homeProperties__card__details h6{
@@ -683,24 +785,201 @@ body{
   justify-content: space-between;
 }
 
-/* .homeTestimonials {
-    @apply text-white bg-black/80 py-14 md:py-0;
+.homeTestimonials{
+  background-color: rgb(0 0 0 / 0.8);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px){
+  .homeTestimonials{
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
-  .homeTestimonials__wrapper {
-    @apply grid items-center grid-cols-1 md:grid-cols-2 gap-5;
+}
+
+.homeTestimonials__wrapper{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px){
+  .homeTestimonials__wrapper{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .homeTestimonials__text p {
-    @apply m-12 max-w-xl;
+}
+
+.homeTestimonials__text h3{
+  margin-top: 1.75rem;
+  max-width: 24rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.homeTestimonials__text p{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  max-width: 36rem;
+}
+
+.homeTestimonials__text h4{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.homeTestimonials__text img{
+  margin-left: auto;
+  margin-right: auto;
+  width: 24rem;
+}
+
+@media (min-width: 768px){
+  .homeTestimonials__text img{
+    width: auto;
   }
-  .homeTestimonials__text h3 {
-    @apply text-4x1 mt-7 max-w-sm font-bold;
+}
+
+.aboutOffer__card{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 768px){
+  .aboutOffer__card{
+    flex-direction: row;
+    gap: 1.25rem;
   }
-  .homeTestimonials_text h4 {
-    @apply text-3xl font-bold;
-  } 
-  .homeTestimonials img{
-    @apply mx-auto w-90 md:w-auto;
-  } */
+}
+
+.aboutOffer__card__details{
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.aboutOffer__card img{
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  .aboutOffer__card img{
+    height: 24rem;
+    width: 18rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media (min-width: 1024px){
+  .aboutOffer__card img{
+    height: auto;
+    width: auto;
+  }
+}
+
+.aboutOffer__card__details h4{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px){
+  .aboutOffer__card__details h4{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.aboutOffer__card__details p{
+  margin-top: 1.25rem;
+  text-align: justify;
+}
+
+/* ========= */
+
+.propertiesOffer__card{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px){
+  .propertiesOffer__card{
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px){
+  .propertiesOffer__card{
+    max-width: 100%;
+  }
+}
+
+.propertiesOffer__card__details{
+  gap: 5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  text-align: justify;
+}
+
+.propertiesOffer__card img{
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  .propertiesOffer__card img{
+    height: 24rem;
+    width: 18rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media (min-width: 1024px){
+  .propertiesOffer__card img{
+    height: 22rem;
+    width: 66.666667%;
+  }
+}
+
+.propertiesOffer__card__details h4{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px){
+  .propertiesOffer__card__details h4{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.propertiesOffer__card__details p{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
 
 .footer{
   --tw-bg-opacity: 1;
@@ -742,13 +1021,27 @@ body{
   color: rgb(25 47 87 / var(--tw-text-opacity, 1));
 }
 
-.my-12{
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+/*prebuilt component (button, header and footer) */
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my-5{
   margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.mb-12{
+  margin-bottom: 3rem;
+}
+
+.mb-20{
+  margin-bottom: 5rem;
+}
+
+.mb-5{
   margin-bottom: 1.25rem;
 }
 
@@ -764,20 +1057,24 @@ body{
   height: 35rem;
 }
 
+.h-\[70vh\]{
+  height: 70vh;
+}
+
 .w-full{
   width: 100%;
 }
 
-.max-w-lg{
-  max-width: 32rem;
+.max-w-2xl{
+  max-width: 42rem;
+}
+
+.max-w-\[70rem\]{
+  max-width: 70rem;
 }
 
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-wrap{
@@ -818,17 +1115,16 @@ body{
   background-image: url(../img/INDEX-BANNER.png);
 }
 
+.bg-\[url\(\.\.\/img\/about\.png\)\]{
+  background-image: url(../img/about.png);
+}
+
 .bg-cover{
   background-size: cover;
 }
 
 .bg-no-repeat{
   background-repeat: no-repeat;
-}
-
-.py-14{
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
 }
 
 .py-20{
@@ -841,13 +1137,21 @@ body{
   padding-bottom: 9rem;
 }
 
-.py-40{
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+.py-7{
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.pt-20{
+  padding-top: 5rem;
 }
 
 .text-center{
   text-align: center;
+}
+
+.text-justify{
+  text-align: justify;
 }
 
 .text-2xl{
@@ -860,17 +1164,8 @@ body{
   line-height: 2.5rem;
 }
 
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .font-bold{
   font-weight: 700;
-}
-
-.leading-normal{
-  line-height: 1.5;
 }
 
 .text-primary{
@@ -883,9 +1178,11 @@ body{
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+/*includes ccstoized & unsupported utilities */
+
 @media (min-width: 768px){
-  .md\:grid{
-    display: grid;
+  .md\:max-w-2xl{
+    max-width: 42rem;
   }
 
   .md\:max-w-md{
@@ -896,9 +1193,9 @@ body{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .md\:py-0{
-    padding-top: 0px;
-    padding-bottom: 0px;
+  .md\:py-12{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .md\:py-44{
@@ -909,6 +1206,11 @@ body{
   .md\:text-4xl{
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-6xl{
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
