@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Estate - Contact</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="icon" href="../img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="branding">
+            <a href="./index.html">
+              <img src="../img/LOGO 1.png" alt="This is the logo." />
+            </a>
+          </div>
+          <nav class="header__nav">
+            <ul>
+              <li><a href="./properties.html">Properties</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn--primary">Get Started</a>
+          </nav>
+
+          <div class="toggle__menu">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="contact pt-44 pb-28 md:mx-5">
+      <div class="container">
+        <small>CONTACT US</small>
+        <div
+          class="contact__wrapper grid grid-cols-1 gap-14 lg:grid-cols-[1fr_2fr]"
+        >
+          <div class="contact__information">
+            <h2 class="text-4xl font-bold mb-5 mt-7">
+              Let's working together
+            </h2>
+            <p class="mb-5 w-[70%]">
+              Thank you for your interest in our services. We're excited to hear
+              from you.
+            </p>
+            <div class="contact__social-links">
+              <div class="contact__social-links__icon fa-2x">
+                <i class="fa-solid fa-headphones-simple"></i>
+              </div>
+              <div class="contact__social-links__details">
+                <p>Call us for inquiry</p>
+                <span>+258 (549) 2158 3215</span>
+              </div>
+            </div>
+            <div class="contact__social-links">
+              <div class="contact__social-links__icon">
+                <i class="fa-solid fa-envelope fa-2x"></i>
+              </div>
+              <div class="contact__social-links__details">
+                <p>Email anytime</p>
+                <span>realestate@mail.com</span>
+              </div>
+            </div>
+            <div class="contact__social-links">
+              <div class="contact__social-links__icon">
+                <i class="fa-solid fa-map-pin w-12 h-12 text-center fa-2x"></i>
+              </div>
+              <div class="contact__social-links__details">
+                <p>Visit our office</p>
+                <span>15 Maniel Lane, Frontline Berlin</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact__form">
+            <form action="#">
+              <ul class="contact__form__name flex flex-col-2 gap-5 mb-5">
+                <li>
+                  <input type="text" placeholder="First Name" />
+                </li>
+                <li>
+                  <input type="text" placeholder="Last Name" />
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <input type="email" placeholder="Email Address" />
+                </li>
+                <li>
+                  <textarea
+                    name=""
+                    placeholder="Message"
+                    class="h-60 mt-5"
+                  ></textarea>
+                </li>
+              </ul>
+              <button type="submit" class="btn btn--primary mt-10">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <small>
+          Copyright &copy 2025 Real Estate, designed by HM. All rights reserved.
+        </small>
+      </div>
+    </footer>
+    <script src="./toggleMenu.js"></script>
+  </body>
+</html>
