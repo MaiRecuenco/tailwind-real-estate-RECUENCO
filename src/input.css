@@ -165,11 +165,13 @@
   .contact__form__name li {
     @apply w-full;
   }
-  .contact__form input, textarea {
-    @apply border-[1.5px] border-black rounded-xl w-full p-3;
+  .contact__form input,
+  textarea {
+    @apply border-[1.5px] border-black rounded-md w-full p-3;
   }
-  .contact__form input::placeholder, textarea::placeholder {
-    @apply text-black font-bold pl-5;
+  .contact__form input::placeholder,
+  textarea::placeholder {
+    @apply text-black font-medium pl-5;
   }
 
   .footer {
